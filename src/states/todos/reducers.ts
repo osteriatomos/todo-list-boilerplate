@@ -1,4 +1,4 @@
-import { Todo, CREATE_TODO, DELETE_TODO, Actions } from "./types";
+import { Todo, CREATE_TODO, DELETE_TODO, Actions } from './types';
 
 export const initialState: Todo[] = [];
 

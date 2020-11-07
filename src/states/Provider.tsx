@@ -1,6 +1,6 @@
-import React, { createContext } from "react";
-import { useTodo } from "./todos/hooks";
-import { DispatchActions, Todo } from "./todos/types";
+import React, { createContext } from 'react';
+import { useTodo } from './todos/hooks';
+import { DispatchActions, Todo } from './todos/types';
 
 export const TodoContext = createContext(
   {} as {
