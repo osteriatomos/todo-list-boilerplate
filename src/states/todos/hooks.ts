@@ -1,7 +1,6 @@
 import { useState, useReducer } from "react";
 import { initialState, reducer } from "./reducers";
-import { Todo, DispatchActions } from "./types";
-import { createTodoAction, deleteTodoAction } from "./actions";
+import { CREATE_TODO, DELETE_TODO, Todo, DispatchActions } from "./types";
 
 export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
   const [isFetching, setIsFetching] = useState(false);
@@ -13,7 +12,7 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
     try {
       // await 非同期処理
       setIsFetching(false);
-      dispatch(createTodoAction({ actionItem: actionItem }));
+      dispatch({type: CREATE_TODO, payload: { actionItem: actionItem }});
     } catch (e) {
       setIsFetching(false);
       setErrorMessage(e);
@@ -24,7 +23,7 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
     try {
       // await 非同期処理
       setIsFetching(false);
-      dispatch(deleteTodoAction({ id: id }));
+      dispatch({type:DELETE_TODO, payload:{ id: id }});
     } catch (e) {
       setIsFetching(false);
       setErrorMessage(e);
