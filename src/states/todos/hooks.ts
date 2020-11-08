@@ -11,7 +11,8 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
     async ({ actionItem }: { actionItem: string }) => {
       setIsFetching(true);
       try {
-        // await 非同期処理
+        // 任意の非同期処理
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsFetching(false);
         dispatch({ type: CREATE_TODO, payload: { actionItem: actionItem } });
       } catch (e) {
@@ -19,20 +20,24 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
         setErrorMessage(e);
       }
     },
-    []
+    [dispatch, setIsFetching, setErrorMessage]
   );
 
-  const deleteTodo = useCallback(async ({ id }: { id: number }) => {
-    setIsFetching(true);
-    try {
-      // await 非同期処理
-      setIsFetching(false);
-      dispatch({ type: DELETE_TODO, payload: { id: id } });
-    } catch (e) {
-      setIsFetching(false);
-      setErrorMessage(e);
-    }
-  }, []);
+  const deleteTodo = useCallback(
+    async ({ id }: { id: number }) => {
+      setIsFetching(true);
+      try {
+        // 任意の非同期処理
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setIsFetching(false);
+        dispatch({ type: DELETE_TODO, payload: { id: id } });
+      } catch (e) {
+        setIsFetching(false);
+        setErrorMessage(e);
+      }
+    },
+    [dispatch, setIsFetching, setErrorMessage]
+  );
 
   const dispatchActions = {
     create: createTodo,

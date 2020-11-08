@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTodoContext } from '../states/Provider';
 import { Todo } from '../states/todos/types';
 
@@ -6,9 +6,9 @@ const TodoList: React.FC = () => {
   const { state, dispatchActions } = useTodoContext();
 
   const DeleteButton: React.FC<{ id: number }> = ({ id }) => {
-    const _onClick = () => {
+    const _onClick = useCallback(() => {
       dispatchActions.delete({ id: id });
-    };
+    }, [id]);
 
     return <button onClick={_onClick}>×</button>;
   };
