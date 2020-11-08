@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import { TodoContext } from "../states/Provider";
+import React, { useState } from 'react';
+import { useTodoContext } from '../states/Provider';
 
 const TodoForm: React.FC = () => {
-  const [text, setText] = useState("");
-  const { dispatchActions } = useContext(TodoContext);
+  const [text, setText] = useState('');
+  const { dispatchActions } = useTodoContext();
 
   const _onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
@@ -11,7 +11,7 @@ const TodoForm: React.FC = () => {
 
   const _onClick = () => {
     dispatchActions.create({ actionItem: text });
-    setText("");
+    setText('');
   };
 
   return (
