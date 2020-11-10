@@ -1,14 +1,13 @@
 import React from 'react';
-import TodoBoard from './pages/TodoBoard';
 import './App.css';
 import { ContextProvider } from '../src/states/Provider';
+import rootPath from './routes';
+import { useRoutes } from 'react-router-dom';
 
 function App() {
-  return (
-    <ContextProvider>
-      <TodoBoard />
-    </ContextProvider>
-  );
+  const element = useRoutes(rootPath);
+
+  return <ContextProvider>{element}</ContextProvider>;
 }
 
 export default App;
