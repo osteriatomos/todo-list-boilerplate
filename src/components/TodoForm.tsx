@@ -15,7 +15,7 @@ const TodoForm: React.FC = () => {
   const _onClick = useCallback(() => {
     dispatchActions.create({ actionItem: text });
     setText('');
-  }, [setText]);
+  }, [dispatchActions, text]);
 
   return (
     <React.Fragment>
