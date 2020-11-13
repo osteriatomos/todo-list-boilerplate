@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import { useTodoContext } from '../states/Provider';
-import { Todo } from '../states/todos/types';
+import { useTodoContext } from '../../states/Provider';
+import { Todo } from '../../states/todos/types';
 
 const TodoList: React.FC = () => {
   const { state, dispatchActions } = useTodoContext();

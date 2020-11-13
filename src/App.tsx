@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { ContextProvider } from '../src/states/Provider';
-import rootPath from './routes';
+import routes from './routes';
 import { useRoutes } from 'react-router-dom';
 
 function App() {
-  const element = useRoutes(rootPath);
+  const routing = useRoutes(routes);
 
-  return <ContextProvider>{element}</ContextProvider>;
+  return <ContextProvider>{routing}</ContextProvider>;
 }
 
 export default App;
