@@ -5,23 +5,19 @@ import AppBar from './AppBar';
 const styles = {
   root: {
     height: '100%',
-    overflow: 'hidden',
     width: '100%',
+    overflow: 'hidden',
   },
   wrapper: {
     display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-  },
-  contentContainer: {
-    display: 'flex',
-    flex: '1 1 auto',
+    flex: 'auto',
     overflow: 'hidden',
   },
   content: {
-    flex: '1 1 auto',
+    flex: 'auto',
     height: '100%',
     overflow: 'auto',
+    padding: '16px',
   },
 };
 
@@ -30,10 +26,8 @@ const MainLayout: React.FC = () => {
     <div style={styles.root}>
       <AppBar />
       <div style={styles.wrapper}>
-        <div style={styles.contentContainer}>
-          <div style={styles.content}>
-            <Outlet />
-          </div>
+        <div style={styles.content}>
+          <Outlet />
         </div>
       </div>
     </div>
