@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { useTodoContext } from '../../states/Provider';
+import { useTodoContext } from 'states/Provider';
 
 const TodoForm: React.FC = () => {
   const [text, setText] = useState('');

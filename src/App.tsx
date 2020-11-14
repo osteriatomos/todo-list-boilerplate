@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import { ContextProvider } from '../src/states/Provider';
-import routes from './routes';
+import 'App.css';
+import { ContextProvider } from 'states/Provider';
+import routes from 'routes';
 import { useRoutes } from 'react-router-dom';
 
 function App() {

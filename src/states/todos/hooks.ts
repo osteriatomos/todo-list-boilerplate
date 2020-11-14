@@ -12,7 +12,7 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
       setIsFetching(true);
       try {
         // 任意の非同期処理
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 100));
         setIsFetching(false);
         dispatch({ type: CREATE_TODO, payload: { actionItem: actionItem } });
       } catch (e) {
@@ -28,7 +28,7 @@ export const useTodo = (): [Todo[], DispatchActions, boolean, string] => {
       setIsFetching(true);
       try {
         // 任意の非同期処理
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 100));
         setIsFetching(false);
         dispatch({ type: DELETE_TODO, payload: { id: id } });
       } catch (e) {

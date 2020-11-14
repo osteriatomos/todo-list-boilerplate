@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import MainLayout from './layouts';
-import NotFoundPage from './components/pages/NotFoundPage';
-import TodoBoardPage from './components/pages/TodoBoardPage';
+import MainLayout from 'layouts';
+import NotFoundPage from 'components/pages/NotFoundPage';
+import TodoBoardPage from 'components/pages/TodoBoardPage';
 
 export const routes = [
   {
