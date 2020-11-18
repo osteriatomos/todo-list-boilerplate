@@ -3,7 +3,7 @@ import { useTodoContext } from 'states/Provider';
 import { Todo } from 'states/todos/types';
 
 const TodoList: React.FC = () => {
-  const { state, dispatchActions } = useTodoContext();
+  const { state, dispatchActions, isFetching } = useTodoContext();
 
   const DeleteButton: React.FC<{ id: number }> = ({ id }) => {
     const _onClick = useCallback(() => {
@@ -12,6 +12,10 @@ const TodoList: React.FC = () => {
 
     return <button onClick={_onClick}>×</button>;
   };
+
+  if (isFetching) {
+    return <div> Loading... </div>;
+  }
 
   return (
     <React.Fragment>
