@@ -2,25 +2,25 @@ import React, { useState, useCallback } from 'react';
 import { useTodoContext } from 'states/Provider';
 
 const TodoForm: React.FC = () => {
-  const [text, setText] = useState('');
-  const { dispatchActions } = useTodoContext();
+  const [actionItem, setActionItem] = useState('');
+  const { createTodo } = useTodoContext();
 
   const _onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      setText(event.target.value);
+      setActionItem(event.target.value);
     },
-    [setText]
+    [setActionItem]
   );
 
   const _onClick = useCallback(() => {
-    dispatchActions.create({ actionItem: text });
-    setText('');
-  }, [dispatchActions, text]);
+    createTodo({ actionItem });
+    setActionItem('');
+  }, [createTodo, actionItem]);
 
   return (
     <React.Fragment>
-      <input value={text} onChange={_onChange} />
-      <button onClick={_onClick} disabled={text.length === 0}>
+      <input value={actionItem} onChange={_onChange} />
+      <button onClick={_onClick} disabled={actionItem.length === 0}>
         Submit
       </button>
     </React.Fragment>

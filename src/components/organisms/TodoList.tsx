@@ -3,11 +3,11 @@ import { useTodoContext } from 'states/Provider';
 import { Todo } from 'states/todos/types';
 
 const TodoList: React.FC = () => {
-  const { state, dispatchActions, isFetching } = useTodoContext();
+  const { state, deleteTodo, isFetching } = useTodoContext();
 
   const DeleteButton: React.FC<{ id: number }> = ({ id }) => {
     const _onClick = useCallback(() => {
-      dispatchActions.delete({ id: id });
+      deleteTodo({ id });
     }, [id]);
 
     return <button onClick={_onClick}>×</button>;

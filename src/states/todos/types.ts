@@ -13,14 +13,14 @@ type CreateTodo = {
   payload: { actionItem: string };
 };
 
+type UpdateTodo = {
+  type: typeof UPDATE_TODO;
+  payload: { id: number; actionItem: string; isCompleted: boolean };
+};
+
 type DeleteTodo = {
   type: typeof DELETE_TODO;
   payload: { id: number };
 };
 
-export type Actions = CreateTodo | DeleteTodo;
-
-export type DispatchActions = {
-  create: ({ actionItem }: { actionItem: string }) => Promise<void>;
-  delete: ({ id }: { id: number }) => Promise<void>;
-};
+export type Actions = CreateTodo | UpdateTodo | DeleteTodo;
